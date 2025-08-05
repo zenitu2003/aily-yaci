@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>文章コピー</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; padding: 50px; }
+    button { font-size: 1.2em; padding: 10px 20px; cursor: pointer; }
+    .copied { color: green; margin-top: 10px; }
+  </style>
+</head>
+<body>
+
+  <h1>クリックして文章をコピー</h1>
+  <p id="textToCopy">鈴石帆乃花</p>
+  <button onclick="copyText()">コピーする</button>
+  <p class="copied" id="copiedMessage" style="display: none;">コピーしました！</p>
+
+  <script>
+    function copyText() {
+      const text = document.getElementById("textToCopy").textContent;
+      navigator.clipboard.writeText(text).then(function() {
+        document.getElementById("copiedMessage").style.display = "block";
+      });
+    }
+  </script>
+
+</body>
+</html>
